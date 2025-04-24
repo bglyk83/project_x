@@ -32,7 +32,11 @@ export async function check_me(req, res, next) {
 }
 
 export async function logout(req, res, next) {
-  req.session.destroy(() => {
-    res.send("로그아웃 되었습니다.");
-  });
+  if (req.session.user) {
+    req.session.destroy(() => {
+      res.send("로그아웃 되었습니다.");
+    });
+  } else {
+    res.status(401).send("로그인 된 기록이 없습니다");
+  }
 }
