@@ -1,4 +1,5 @@
 import express from "express";
+import session from "express-session";
 import postsRouter from "./router/posts.mjs";
 import authRouter from "./router/auth.mjs";
 
@@ -11,6 +12,15 @@ app.use("/auth", authRouter);
 app.use((req, res, next) => {
   res.sendStatus(404);
 });
+
+app.use(
+  session({
+    secret: "!@#$%^&*()",
+    resave: false,
+    saveUnintialized: false,
+    cookie: { secure: false },
+  })
+);
 
 app.listen(8080, () => {
   console.log("SERVER 실행 중!!!!!");
