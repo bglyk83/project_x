@@ -1,3 +1,5 @@
+import e from "express";
+
 let users = [
   {
     id: "1",
@@ -59,4 +61,13 @@ export async function login(userid, password) {
     (user) => user.userid === userid && user.password === password
   );
   return user;
+}
+
+export async function findByUserid(userid) {
+  const user = users.find((user) => user.userid === userid);
+  return user;
+}
+
+export async function findByid(id) {
+  return users.find((user) => user.id === id);
 }
