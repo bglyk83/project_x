@@ -3,7 +3,7 @@ import * as postController from "../controller/post.mjs";
 
 import { body } from "express-validator";
 import { validate } from "../middleware/vaildator.mjs";
-import { isAuth } from "../middleware/authj.mjs";
+import { isAuth } from "../middleware/auth.mjs";
 
 const router = express.Router();
 
