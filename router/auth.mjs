@@ -1,7 +1,8 @@
 import express from "express";
 import * as authController from "../controller/auth.mjs";
 import { body } from "express-validator";
-import { validate } from "../middleware/vaildator.mjs";
+import { validate } from "../middleware/validator.mjs";
+
 const router = express.Router();
 
 const validateLogin = [
