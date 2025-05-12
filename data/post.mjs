@@ -8,7 +8,7 @@ const postSchema = new Mongoose.Schema(
     name:{type:String,require: true},
     url:String,
     text:{type:String,require: true},
-    userId:{type:String,require:true}
+    userId:{type:String,require:true},
   },
   {timestamps:true}
 );
