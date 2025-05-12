@@ -28,6 +28,7 @@ export async function signup(req, res, next) {
     email,
     url,
   });
+  
   const token = await createJwtToken(users.id);
   console.log(token);
   if (users) {
