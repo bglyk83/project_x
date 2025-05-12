@@ -1,19 +1,27 @@
-import { config } from "../config.mjs";
-import MongoDb from "mongodb";
+/*
+  Mongoose (Tool)
+  - MongoDB + Node.js 용 ORM(Object-Relational Mappingnpnp)
+  -스키마를 정의
+  -입력,수정,조회,삭제, 모두 안정적이고 코드를 간결하게 작성
 
-let db;
+
+*/
+
+import { config } from "../config.mjs";
+import Mongoose from "mongoose";
+
+
+
 
 export async function connectDB() {
-  return MongoDb.MongoClient.connect(config.db.host).then((client) => {
-    db = client.db();
-    // console.log(db);
-  });
-}
+ return Mongoose.connect(config.db.host);
+  }
 
-export function getUsers() {
-  return db.collection("users");
-}
+  export function useVirtualId(schema) {
+    schema.virtual("id").get(function () {
+      return this._id.toString();
+    });
+    schema.set("toJSON", { virtual: true });
+    schema.set("toObject", { virtual: true });
+  }
 
-export function getPosts() {
-  return db.collection("posts");
-}

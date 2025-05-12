@@ -1,7 +1,7 @@
 import express from "express";
 import * as authController from "../controller/auth.mjs";
 import { body } from "express-validator";
-import { validate } from "../middleware/validator.mjs";
+import { validate } from "../middleware/vaildator.mjs";
 
 const router = express.Router();
 
