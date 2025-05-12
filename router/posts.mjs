@@ -1,9 +1,8 @@
 import express from "express";
 import * as postController from "../controller/post.mjs";
-
 import { body } from "express-validator";
-import { validate } from "../middleware/vaildator.mjs";
-import { isAuth } from "../middleware/authj.mjs";
+import { validate } from "../middleware/validator.mjs";
+import { isAuth } from "../middleware/auth.mjs";
 
 const router = express.Router();
 
